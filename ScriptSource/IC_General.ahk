@@ -39,6 +39,7 @@ Gui, Add, Checkbox, x92 y129 w80 h20 vUlt7, Ultimate 7
 Gui, Add, Checkbox, x92 y149 w80 h20 vUlt8, Ultimate 8
 Gui, Add, Checkbox, x92 y169 w80 h20 vUlt9, Ultimate 9
 Gui, Add, Checkbox, x92 y189 w80 h20 vUlt0, Ultimate 0
+Gui, Add, Checkbox, x92 y229 w80 h20 vRight, Press Right
 Gui, Add, Edit, x352 y9 w110 h20 Limit6 -vscroll, Edit
 Gui, Add, UpDown, x179 y84 w18 h30 vLvlUpDelay Range1-10000, 1000
 Gui, Add, Edit, x352 y39 w110 h20 Limit6 -vscroll, Edit
@@ -228,10 +229,36 @@ Loop
         }
     }
     
-    Sleep Min(sleepL, sleepU)
+    if (Right = 1)
+        ControlSend,,{Right}, %wintitle%
+    
+    Sleep 500
 }
 return
 }
 return
+
++F1::
+if (runningL = 1)
+{
+    Goto, StopL
+}
+else
+{
+    Goto, StartL
+}
+return
+
++F2::
+if (runningU = 1)
+{
+    Goto, StopU
+}
+else
+{
+    Goto, StartU
+}
+return
+
 GuiClose:
 ExitApp
