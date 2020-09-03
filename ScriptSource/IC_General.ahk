@@ -238,27 +238,5 @@ return
 }
 return
 
-+F1::
-if (runningL = 1)
-{
-    Goto, StopL
-}
-else
-{
-    Goto, StartL
-}
-return
-
-+F2::
-if (runningU = 1)
-{
-    Goto, StopU
-}
-else
-{
-    Goto, StartU
-}
-return
-
 GuiClose:
 ExitApp
