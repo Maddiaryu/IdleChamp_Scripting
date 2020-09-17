@@ -187,7 +187,13 @@ t1L := A_TickCount + sleepL
 ;while ((runningL = 1) OR (runningU = 1))
 Loop
 {
-    if (runningU = 1 AND ((t1U - A_TickCount) < 0))
+    if (NOT WinActive("ahk_exe IdleDragons.exe"))
+    {
+        ; 
+    }
+    else
+    {
+        if (runningU = 1 AND ((t1U - A_TickCount) < 0))
     {
         element := ActiveUlts[countU]
         if (element != "")
@@ -231,7 +237,7 @@ Loop
     
     if (Right = 1)
         ControlSend,,{Right}, %wintitle%
-    
+    }    
     Sleep 500
 }
 return
